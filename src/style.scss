@@ -1,3 +1,28 @@
 .innocode-block-social-share {
 
+	&__text {
+		margin-right: 15px;
+	}
+
+	&__link {
+		display: inline-block;
+		padding: 0 10px;
+	}
+
+	&__icon {
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		fill: currentColor;
+
+		&--facebook {
+			width: 0.625em;
+		}
+
+		&--linkedin {
+			width: 0.875em;
+		}
+
+	}
+
 }
