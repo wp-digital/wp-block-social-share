@@ -30,7 +30,9 @@ export default function save({ attributes }) {
 					className={`${BLOCK_CLASS_NAME}__text`}
 				/>
 			)}
-			{socials.map((social) => getSocialLink(social, postTitle, postLink))}
+			{socials.map((social) =>
+				getSocialLink(social, postTitle, postLink)
+			)}
 		</div>
 	);
 }

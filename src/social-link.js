@@ -1,13 +1,10 @@
-import {
-	BLOCK_CLASS_NAME,
-	Socials,
-} from './constants';
+import { BLOCK_CLASS_NAME, Socials } from './constants';
 
 export function getSocialLink(type, postTitle, postLink) {
-  switch (type) {
-    case Socials.FACEBOOK:
-      return (
-        <a
+	switch (type) {
+		case Socials.FACEBOOK:
+			return (
+				<a
 					className={`${BLOCK_CLASS_NAME}__link`}
 					href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
 						postLink
@@ -29,11 +26,11 @@ export function getSocialLink(type, postTitle, postLink) {
 						></path>
 					</svg>
 				</a>
-      );
+			);
 
-    case Socials.TWITTER:
-      return (
-        <a
+		case Socials.TWITTER:
+			return (
+				<a
 					className={`${BLOCK_CLASS_NAME}__link`}
 					href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
 						postTitle
@@ -55,11 +52,11 @@ export function getSocialLink(type, postTitle, postLink) {
 						></path>
 					</svg>
 				</a>
-      );
+			);
 
-    case Socials.LINKED_IN:
-      return (
-        <a
+		case Socials.LINKED_IN:
+			return (
+				<a
 					className={`${BLOCK_CLASS_NAME}__link`}
 					href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
 						postLink
@@ -81,13 +78,15 @@ export function getSocialLink(type, postTitle, postLink) {
 						></path>
 					</svg>
 				</a>
-      );
+			);
 
-    case Socials.EMAIL:
-      return (
-        <a
+		case Socials.EMAIL:
+			return (
+				<a
 					className={`${BLOCK_CLASS_NAME}__link`}
-					href={`mailto:?body=${encodeURIComponent(postTitle + ' - ' + postLink)}.`}
+					href={`mailto:?body=${encodeURIComponent(
+						postTitle + ' - ' + postLink
+					)}.`}
 					target="_blank"
 					rel="noreferrer noopener"
 					aria-label="share by email"
@@ -105,6 +104,6 @@ export function getSocialLink(type, postTitle, postLink) {
 						></path>
 					</svg>
 				</a>
-      );
-  }
+			);
+	}
 }

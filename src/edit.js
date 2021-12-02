@@ -32,7 +32,7 @@ export default function Edit(props) {
 		return {
 			link: select('core/editor').getEditedPostAttribute('link'),
 			title: select('core/editor').getEditedPostAttribute('title'),
-		}
+		};
 	}, []);
 
 	useEffect(() => {
@@ -86,7 +86,9 @@ export default function Edit(props) {
 						className={`${BLOCK_CLASS_NAME}__text`}
 					/>
 				)}
-				{socials.map((social) => getSocialLink(social, postTitle, postLink))}
+				{socials.map((social) =>
+					getSocialLink(social, postTitle, postLink)
+				)}
 			</div>
 		</Fragment>
 	);
