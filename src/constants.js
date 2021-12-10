@@ -10,7 +10,7 @@ export const Socials = {
 };
 
 export const SOCIALS_DEFAULT = applyFilters(
-	'innocode.block-social-share.socials.default',
+	'innocode.block-social-share.socials',
 	[Socials.FACEBOOK, Socials.TWITTER, Socials.LINKED_IN, Socials.EMAIL]
 );
 

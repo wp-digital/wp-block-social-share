@@ -1,3 +1,5 @@
+import { applyFilters } from '@wordpress/hooks';
+import { __ } from '@wordpress/i18n';
 import { BLOCK_CLASS_NAME, Socials } from './constants';
 
 export function getSocialLink(type, postTitle, postLink) {
@@ -5,17 +7,20 @@ export function getSocialLink(type, postTitle, postLink) {
 		case Socials.FACEBOOK:
 			return (
 				<a
-					className={`${BLOCK_CLASS_NAME}__link`}
+					className={`${BLOCK_CLASS_NAME}__link ${BLOCK_CLASS_NAME}__link_facebook`}
 					href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
 						postLink
 					)}`}
 					target="_blank"
 					rel="noreferrer noopener"
-					aria-label="share on Facebook"
+					aria-label={__(
+						'Share on Facebook',
+						'innocode-block-social-share'
+					)}
 				>
 					<svg
 						focusable="false"
-						className={`${BLOCK_CLASS_NAME}__icon ${BLOCK_CLASS_NAME}__icon--facebook`}
+						className={`${BLOCK_CLASS_NAME}__icon ${BLOCK_CLASS_NAME}__icon_facebook`}
 						role="img"
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 320 512"
@@ -31,17 +36,20 @@ export function getSocialLink(type, postTitle, postLink) {
 		case Socials.TWITTER:
 			return (
 				<a
-					className={`${BLOCK_CLASS_NAME}__link`}
+					className={`${BLOCK_CLASS_NAME}__link ${BLOCK_CLASS_NAME}__link_twitter`}
 					href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
 						postTitle
 					)}&url=${encodeURIComponent(postLink)}`}
 					target="_blank"
 					rel="noreferrer noopener"
-					aria-label="share on Twitter"
+					aria-label={__(
+						'Share on Twitter',
+						'innocode-block-social-share'
+					)}
 				>
 					<svg
 						focusable="false"
-						className={`${BLOCK_CLASS_NAME}__icon ${BLOCK_CLASS_NAME}__icon--twitter`}
+						className={`${BLOCK_CLASS_NAME}__icon ${BLOCK_CLASS_NAME}__icon_twitter`}
 						role="img"
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 512 512"
@@ -57,17 +65,20 @@ export function getSocialLink(type, postTitle, postLink) {
 		case Socials.LINKED_IN:
 			return (
 				<a
-					className={`${BLOCK_CLASS_NAME}__link`}
+					className={`${BLOCK_CLASS_NAME}__link ${BLOCK_CLASS_NAME}__link_linkedin`}
 					href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
 						postLink
 					)}`}
 					target="_blank"
 					rel="noreferrer noopener"
-					aria-label="share on LinkedIn"
+					aria-label={__(
+						'Share on LinkedIn',
+						'innocode-block-social-share'
+					)}
 				>
 					<svg
 						focusable="false"
-						className={`${BLOCK_CLASS_NAME}__icon ${BLOCK_CLASS_NAME}__icon--linkedin`}
+						className={`${BLOCK_CLASS_NAME}__icon ${BLOCK_CLASS_NAME}__icon_linkedin`}
 						role="img"
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 448 512"
@@ -83,17 +94,20 @@ export function getSocialLink(type, postTitle, postLink) {
 		case Socials.EMAIL:
 			return (
 				<a
-					className={`${BLOCK_CLASS_NAME}__link`}
+					className={`${BLOCK_CLASS_NAME}__link ${BLOCK_CLASS_NAME}__link_email`}
 					href={`mailto:?body=${encodeURIComponent(
 						postTitle + ' - ' + postLink
 					)}.`}
 					target="_blank"
 					rel="noreferrer noopener"
-					aria-label="share by email"
+					aria-label={__(
+						'Share by email',
+						'innocode-block-social-share'
+					)}
 				>
 					<svg
 						focusable="false"
-						className={`${BLOCK_CLASS_NAME}__icon ${BLOCK_CLASS_NAME}__icon--email`}
+						className={`${BLOCK_CLASS_NAME}__icon ${BLOCK_CLASS_NAME}__icon_email`}
 						role="img"
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 512 512"
@@ -104,6 +118,14 @@ export function getSocialLink(type, postTitle, postLink) {
 						></path>
 					</svg>
 				</a>
+			);
+
+		default:
+			return applyFilters(
+				`innocode.block-social-share.${type}`,
+				null,
+				postTitle,
+				postLink
 			);
 	}
 }

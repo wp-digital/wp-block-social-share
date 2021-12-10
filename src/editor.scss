@@ -1,3 +1,7 @@
-// .innocode-block-social-share {
+.innocode-block-social-share {
 
-// }
+	&__link {
+		pointer-events: none;
+	}
+
+}

@@ -25,7 +25,7 @@ export default function save({ attributes }) {
 		>
 			{hasText && text && (
 				<RichText.Content
-					tagName="span"
+					tagName="div"
 					value={text}
 					className={`${BLOCK_CLASS_NAME}__text`}
 				/>

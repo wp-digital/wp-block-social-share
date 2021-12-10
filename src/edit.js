@@ -74,7 +74,7 @@ export default function Edit(props) {
 			>
 				{hasText && (
 					<RichText
-						tagName="span"
+						tagName="div"
 						value={text}
 						placeholder={__(
 							'Share text',
@@ -83,6 +83,7 @@ export default function Edit(props) {
 						onChange={(value) => {
 							setAttributes({ text: value });
 						}}
+						keepPlaceholderOnFocus
 						className={`${BLOCK_CLASS_NAME}__text`}
 					/>
 				)}
