@@ -8,13 +8,9 @@ import { useSelect } from '@wordpress/data';
 import { PanelBody, PanelRow, FormToggle } from '@wordpress/components';
 import { Fragment, useEffect } from '@wordpress/element';
 
-import {
-	BLOCK_CLASS_NAME,
-	HAS_TEXT_DEFAULT,
-	SOCIALS_DEFAULT,
-} from './constants';
+import { BLOCK_CLASS_NAME, HAS_TEXT_DEFAULT, SOCIALS } from './constants';
 
-import { getSocialLink } from './social-link';
+import SocialLink from './SocialLink';
 
 import './editor.scss';
 
@@ -25,15 +21,15 @@ export default function Edit(props) {
 		postTitle,
 		text,
 		hasText = HAS_TEXT_DEFAULT,
-		socials = SOCIALS_DEFAULT,
 	} = attributes;
 
-	const { link, title } = useSelect((select) => {
-		return {
+	const { link, title } = useSelect(
+		(select) => ({
 			link: select('core/editor').getEditedPostAttribute('link'),
 			title: select('core/editor').getEditedPostAttribute('title'),
-		};
-	}, []);
+		}),
+		[]
+	);
 
 	useEffect(() => {
 		setAttributes({
@@ -47,7 +43,7 @@ export default function Edit(props) {
 			<InspectorControls>
 				<PanelBody
 					title={__('Settings', 'innocode-block-social-share')}
-					initialOpen={true}
+					initialOpen
 				>
 					<PanelRow>
 						<legend className="blocks-base-control__label">
@@ -83,13 +79,17 @@ export default function Edit(props) {
 						onChange={(value) => {
 							setAttributes({ text: value });
 						}}
-						keepPlaceholderOnFocus
 						className={`${BLOCK_CLASS_NAME}__text`}
 					/>
 				)}
-				{socials.map((social) =>
-					getSocialLink(social, postTitle, postLink)
-				)}
+				{SOCIALS.map((type) => (
+					<SocialLink
+						key={type}
+						type={type}
+						link={postLink}
+						title={postTitle}
+					/>
+				))}
 			</div>
 		</Fragment>
 	);

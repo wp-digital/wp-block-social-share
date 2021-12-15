@@ -1,20 +1,15 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-import {
-	BLOCK_CLASS_NAME,
-	HAS_TEXT_DEFAULT,
-	SOCIALS_DEFAULT,
-} from './constants';
+import SocialLink from './SocialLink';
 
-import { getSocialLink } from './social-link';
+import { BLOCK_CLASS_NAME, HAS_TEXT_DEFAULT, SOCIALS } from './constants';
 
 export default function save({ attributes }) {
 	const {
-		postTitle,
 		postLink,
-		text,
+		postTitle,
 		hasText = HAS_TEXT_DEFAULT,
-		socials = SOCIALS_DEFAULT,
+		text,
 	} = attributes;
 
 	return (
@@ -23,16 +18,21 @@ export default function save({ attributes }) {
 				className: BLOCK_CLASS_NAME,
 			})}
 		>
-			{hasText && text && (
+			{hasText && !!text && (
 				<RichText.Content
 					tagName="div"
 					value={text}
 					className={`${BLOCK_CLASS_NAME}__text`}
 				/>
 			)}
-			{socials.map((social) =>
-				getSocialLink(social, postTitle, postLink)
-			)}
+			{SOCIALS.map((type) => (
+				<SocialLink
+					key={type}
+					type={type}
+					link={postLink}
+					title={postTitle}
+				/>
+			))}
 		</div>
 	);
 }

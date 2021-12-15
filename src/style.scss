@@ -9,23 +9,14 @@
 
 	&__link {
 		display: inline-block;
-		padding: 0 10px;
+	    vertical-align: middle;
+	    padding: 0.5em;
 	}
 
 	&__icon {
-		display: inline-block;
+		display: block;
 		width: 1em;
 		height: 1em;
 		fill: currentColor;
-
-		&--facebook {
-			width: 0.625em;
-		}
-
-		&--linkedin {
-			width: 0.875em;
-		}
-
 	}
-
 }

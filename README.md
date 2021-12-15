@@ -1,5 +1,3 @@
-!!! Coming soon !!!
-
 # Social Share Block
 
 ### Description
@@ -30,8 +28,20 @@ Activate **Social Share Block** with [WP-CLI](https://make.wordpress.org/cli/han
 
 ### Documentation
 
+Add or remove social with hook `innocode.block-social-share.socials`. If new social
+added then it needs to be rendered via `innocode.block-social-share.${type}` filter. **Example**:
 
+````
+wp.hooks.addFilter( 'innocode.block-social-share.socials', 'my-theme', ( socials ) => [
+	...socials,
+	'snapchat',
+] );
+````
 
-### Notes
+````
+wp.hooks.addFilter( 'innocode.block-social-share.snapchat', 'my-theme', ( el, link, title, blockClassName ) => {
+	// Create element.
 
-
+	return el;
+} );
+````
