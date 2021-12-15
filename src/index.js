@@ -10,10 +10,11 @@ import './style.scss';
 registerBlockType('innocode/block-social-share', {
 	apiVersion: 2,
 	supports: {
+		align: ['left', 'center', 'right', 'wide'],
 		className: false,
 	},
+	attributes,
 	edit: Edit,
 	save,
-	attributes,
 	icon,
 });
