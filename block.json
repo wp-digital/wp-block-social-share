@@ -1,6 +1,6 @@
 {
 	"apiVersion": 2,
-	"name": "innocode/wp-block-social-share",
+	"name": "innocode/block-social-share",
     "version": "1.0.0",
     "title": "Social Share",
 	"category": "design",
