@@ -3,20 +3,24 @@
 	align-items: center;
 	line-height: 1;
 
-	&__text {
-		margin-right: 15px;
+	&__label {
+		margin-right: 1em;
 	}
 
 	&__link {
 		display: inline-block;
 		vertical-align: middle;
-		padding: 0.5em;
-	}
+		overflow: hidden;
+		width: 2em;
+		height: 2em;
+		white-space: nowrap;
 
-	&__icon {
-		display: block;
-		width: 1em;
-		height: 1em;
-		fill: currentColor;
+	  	svg {
+			display: block;
+		    margin: 0.5em;
+			width: 1em;
+			height: 1em;
+			fill: currentColor;
+		}
 	}
 }

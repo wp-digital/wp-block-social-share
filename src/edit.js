@@ -4,93 +4,71 @@ import {
 	InspectorControls,
 	RichText,
 } from '@wordpress/block-editor';
-import { useSelect } from '@wordpress/data';
-import { PanelBody, PanelRow, FormToggle } from '@wordpress/components';
-import { Fragment, useEffect } from '@wordpress/element';
+import { PanelBody, PanelRow, ToggleControl } from '@wordpress/components';
 
-import { BLOCK_CLASS_NAME, HAS_TEXT_DEFAULT, SOCIALS } from './constants';
+import { BLOCK_CLASS_NAME, SOCIALS } from './constants';
 
-import SocialLink from './SocialLink';
+import icons from './icons.json';
 
 import './editor.scss';
 
 export default function Edit(props) {
 	const { attributes, setAttributes } = props;
-	const {
-		postLink,
-		postTitle,
-		text,
-		hasText = HAS_TEXT_DEFAULT,
-	} = attributes;
+	const { hasLabel, label } = attributes;
 
-	const { link, title } = useSelect(
-		(select) => ({
-			link: select('core/editor').getEditedPostAttribute('link'),
-			title: select('core/editor').getEditedPostAttribute('title'),
-		}),
-		[]
-	);
+	const onChange = (key, value) => {
+		setAttributes({ [key]: value });
+	};
 
-	useEffect(() => {
-		setAttributes({
-			postLink: link,
-			postTitle: title,
-		});
-	}, [postLink, postTitle]);
+	const onHasLabelChange = () => onChange('hasLabel', !hasLabel);
+	const onLabelChange = (value) => onChange('label', value);
 
 	return (
-		<Fragment>
+		<div
+			{...useBlockProps({
+				className: BLOCK_CLASS_NAME,
+			})}
+		>
 			<InspectorControls>
 				<PanelBody
 					title={__('Settings', 'innocode-block-social-share')}
 					initialOpen
 				>
 					<PanelRow>
-						<legend className="blocks-base-control__label">
-							{__(
-								'Show share text',
+						<ToggleControl
+							label={__(
+								'Show label',
 								'innocode-block-social-share'
 							)}
-						</legend>
-						<FormToggle
-							checked={hasText}
-							onChange={(event) => {
-								setAttributes({
-									hasText: event.target.checked,
-								});
-							}}
+							checked={hasLabel}
+							onChange={onHasLabelChange}
 						/>
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
-			<div
-				{...useBlockProps({
-					className: BLOCK_CLASS_NAME,
-				})}
-			>
-				{hasText && (
-					<RichText
-						tagName="div"
-						value={text}
-						placeholder={__(
-							'Share text',
-							'innocode-block-social-share'
-						)}
-						onChange={(value) => {
-							setAttributes({ text: value });
-						}}
-						className={`${BLOCK_CLASS_NAME}__text`}
-					/>
-				)}
-				{SOCIALS.map((type) => (
-					<SocialLink
-						key={type}
-						type={type}
-						link={postLink}
-						title={postTitle}
-					/>
-				))}
-			</div>
-		</Fragment>
+			{hasLabel && (
+				<RichText
+					tagName="div"
+					value={label}
+					placeholder={__(
+						'Label',
+						'innocode-block-social-share'
+					)}
+					onChange={onLabelChange}
+					className={`${BLOCK_CLASS_NAME}__label`}
+				/>
+			)}
+			{Object.keys(SOCIALS).map((social) => (
+				<span
+					key={social}
+					role="button"
+					tabIndex={0}
+					dangerouslySetInnerHTML={{
+						__html: `${icons[social]} ${SOCIALS[social]}`,
+					}}
+					className={`${BLOCK_CLASS_NAME}__link ${BLOCK_CLASS_NAME}__link_${social}`}
+				/>
+			))}
+		</div>
 	);
 }

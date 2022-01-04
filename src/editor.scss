@@ -1,6 +1,6 @@
 .innocode-block-social-share {
 
-	&__link {
-		pointer-events: none;
+    .editor-styles-wrapper &__link {
+		cursor: not-allowed;
 	}
 }

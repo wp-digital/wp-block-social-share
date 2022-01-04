@@ -1,6 +1,6 @@
 {
 	"name": "wp-block-social-share",
-	"version": "1.1.0",
+	"version": "2.0.0",
 	"description": "Links to share current post to most used social such as Facebook, Twitter, Email, LinkedIn.",
 	"author": "Innocode",
 	"license": "GPL-2.0-or-later",
@@ -16,16 +16,17 @@
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
-		"@wordpress/block-editor": "^8.0.7",
-		"@wordpress/blocks": "^11.1.4",
-		"@wordpress/components": "^19.1.1",
-		"@wordpress/data": "^6.1.4",
-		"@wordpress/element": "^4.0.4",
+		"@wordpress/block-editor": "^8.0.12",
+		"@wordpress/blocks": "^11.1.5",
+		"@wordpress/components": "^19.1.6",
+		"@wordpress/data": "^6.1.5",
+		"@wordpress/editor": "^12.0.15",
 		"@wordpress/hooks": "^3.2.2",
-		"@wordpress/i18n": "^4.2.4"
+		"@wordpress/i18n": "^4.2.4",
+		"@wordpress/primitives": "^3.0.4"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^18.1.0",
+		"@wordpress/scripts": "^19.2.2",
 		"prettier": "^2.4.1"
 	}
 }
