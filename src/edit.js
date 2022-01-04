@@ -50,10 +50,7 @@ export default function Edit(props) {
 				<RichText
 					tagName="div"
 					value={label}
-					placeholder={__(
-						'Label',
-						'innocode-block-social-share'
-					)}
+					placeholder={__('Label', 'innocode-block-social-share')}
 					onChange={onLabelChange}
 					className={`${BLOCK_CLASS_NAME}__label`}
 				/>
