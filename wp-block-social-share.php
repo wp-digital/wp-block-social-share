@@ -4,7 +4,7 @@
  * Description:       Links to share current post to most used social such as Facebook, Twitter, Email, LinkedIn.
  * Requires at least: 5.8
  * Requires PHP:      7.0
- * Version:           2.0.2
+ * Version:           2.0.3
  * Author:            Innocode
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -61,8 +61,18 @@ function innocode_block_social_share_icon_by_social( string $social ) : string {
 	return apply_filters( "innocode-block-social-share-$social-icon", $icons[ $social ] ?? '' );
 }
 
+/**
+ * @param array $block_attributes
+ * @return string
+ */
 function innocode_block_social_share_block_render( array $block_attributes ) : string {
 	$block_class_name = 'innocode-block-social-share';
+
+	$class_names = [ $block_class_name ];
+
+	if ( isset( $block_attributes['align'] ) ) {
+		$class_names[] = "align{$block_attributes['align']}";
+	}
 
 	$block_label = '';
 
@@ -89,7 +99,7 @@ function innocode_block_social_share_block_render( array $block_attributes ) : s
 
 	return sprintf(
 		'<div class="%1$s">%2$s%3$s</div>',
-		$block_class_name,
+		implode( ' ', $class_names ),
 		$block_label,
 		$social_links
 	);

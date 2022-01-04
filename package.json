@@ -1,6 +1,6 @@
 {
 	"name": "wp-block-social-share",
-	"version": "2.0.2",
+	"version": "2.0.3",
 	"description": "Links to share current post to most used social such as Facebook, Twitter, Email, LinkedIn.",
 	"author": "Innocode",
 	"license": "GPL-2.0-or-later",
