@@ -1,6 +1,6 @@
 {
 	"name": "wp-block-social-share",
-	"version": "2.0.3",
+	"version": "2.1.0",
 	"description": "Links to share current post to most used social such as Facebook, Twitter, Email, LinkedIn.",
 	"author": "Innocode",
 	"license": "GPL-2.0-or-later",
@@ -20,7 +20,8 @@
 		"@wordpress/blocks": "^11.1.5",
 		"@wordpress/components": "^19.1.6",
 		"@wordpress/i18n": "^4.2.4",
-		"@wordpress/primitives": "^3.0.4"
+		"@wordpress/primitives": "^3.0.4",
+		"lodash": "^4.17.21"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^19.2.2",

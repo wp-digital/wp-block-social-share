@@ -1,3 +1,5 @@
+import { has } from 'lodash';
+
 import { __ } from '@wordpress/i18n';
 import {
 	useBlockProps,
@@ -7,8 +9,6 @@ import {
 import { PanelBody, PanelRow, ToggleControl } from '@wordpress/components';
 
 import { BLOCK_CLASS_NAME, SOCIALS } from './constants';
-
-import icons from './icons.json';
 
 import './editor.scss';
 
@@ -55,17 +55,23 @@ export default function Edit(props) {
 					className={`${BLOCK_CLASS_NAME}__label`}
 				/>
 			)}
-			{Object.keys(SOCIALS).map((social) => (
-				<span
-					key={social}
-					role="button"
-					tabIndex={0}
-					dangerouslySetInnerHTML={{
-						__html: `${icons[social]} ${SOCIALS[social]}`,
-					}}
-					className={`${BLOCK_CLASS_NAME}__link ${BLOCK_CLASS_NAME}__link_${social}`}
-				/>
-			))}
+			{Object.keys(SOCIALS).map((name) => {
+				const social = SOCIALS[name];
+
+				return (
+					<span
+						key={name}
+						role="button"
+						tabIndex={0}
+						dangerouslySetInnerHTML={{
+							__html: `${
+								has(social, 'icon') ? social.icon : ''
+							} ${has(social, 'label') ? social.label : name}`,
+						}}
+						className={`${BLOCK_CLASS_NAME}__link ${BLOCK_CLASS_NAME}__link_${name}`}
+					/>
+				);
+			})}
 		</div>
 	);
 }
