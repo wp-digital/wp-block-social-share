@@ -1,6 +1,6 @@
 {
   "name": "innocode-digital/wp-block-social-share",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "type": "wordpress-plugin",
   "license": "GPL-2.0+",
   "require": {
