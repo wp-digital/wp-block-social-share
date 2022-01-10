@@ -4,7 +4,7 @@
  * Description:       Links to share current post to most used social such as Facebook, Twitter, Email, LinkedIn.
  * Requires at least: 5.8
  * Requires PHP:      7.0
- * Version:           2.1.0
+ * Version:           2.2.0
  * Author:            Innocode
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -55,7 +55,11 @@ function innocode_block_social_share_url_by_social( string $social, int $post_id
 				'url'  => $link,
 			], 'https://twitter.com/intent/tweet' );
 		case 'linkedin':
-			return add_query_arg( 'url', $link, 'https://www.linkedin.com/sharing/share-offsite/' );
+			return add_query_arg( [
+				'mini'  => 'true',
+				'url'   => $link,
+				'title' => $title,
+			], 'https://www.linkedin.com/shareArticle/' );
 		case 'email':
 			return add_query_arg( 'body', "$title &mdash; $link", 'mailto:' );
 		default:
