@@ -1,14 +1,14 @@
 {
 	"apiVersion": 2,
 	"name": "innocode/block-social-share",
-    "version": "2.2.1",
+    "version": "2.3.0",
     "title": "Social Share",
 	"category": "design",
 	"description": "Links to share current post to most used social such as Facebook, Twitter, Email, LinkedIn.",
 	"supports": {
 		"html": false
 	},
-	"textdomain": "innocode-block-social-share",
+	"textdomain": "innocode-blocks",
     "attributes": {
 	  "hasLabel": {
 		"type": "boolean",

@@ -31,15 +31,12 @@ export default function Edit(props) {
 		>
 			<InspectorControls>
 				<PanelBody
-					title={__('Settings', 'innocode-block-social-share')}
+					title={__('Settings', 'innocode-blocks')}
 					initialOpen
 				>
 					<PanelRow>
 						<ToggleControl
-							label={__(
-								'Show label',
-								'innocode-block-social-share'
-							)}
+							label={__('Show label', 'innocode-blocks')}
 							checked={hasLabel}
 							onChange={onHasLabelChange}
 						/>
@@ -50,7 +47,7 @@ export default function Edit(props) {
 				<RichText
 					tagName="div"
 					value={label}
-					placeholder={__('Label', 'innocode-block-social-share')}
+					placeholder={__('Label', 'innocode-blocks')}
 					onChange={onLabelChange}
 					className={`${BLOCK_CLASS_NAME}__label`}
 				/>
