@@ -6,21 +6,21 @@ Links to share current post to most used social such as Facebook, Twitter, Email
 
 ### Demo
 
-[Social Share Block](https://blocks.innocode.digital/social-share-block/)
+[Social Share Block](https://demo.wpd.digital/social-share-block/)
 
 ### Install
 
 - Preferable way is to use [Composer](https://getcomposer.org/):
 
     ````
-    composer require innocode-digital/wp-block-social-share
+    composer require wpd-digital/wp-block-social-share
     ````
 
 - Alternate way is to clone this repo to `wp-content/plugins/`:
 
     ````
     cd wp-content/plugins/
-    git clone git@github.com:innocode-digital/wp-block-social-share.git
+    git clone git@github.com:wpd-digital/wp-block-social-share.git
     ````
 
 Activate **Social Share Block** with [WP-CLI](https://make.wordpress.org/cli/handbook/)
@@ -28,11 +28,11 @@ Activate **Social Share Block** with [WP-CLI](https://make.wordpress.org/cli/han
 
 ### Documentation
 
-Add, change or remove social with hook `innocode-block-social-share-socials`. If new social
-added then its URL needs to be implemented via `innocode-block-social-share-$social-url` filter. **Example**:
+Add, change or remove social with hook `wpd-block-social-share-socials`. If new social
+added then its URL needs to be implemented via `wpd-block-social-share-$social-url` filter. **Example**:
 
 ````
-add_filter( 'innocode-block-social-share-socials', function ( array $socials ) : array {
+add_filter( 'wpd-block-social-share-socials', function ( array $socials ) : array {
 	unset( $socials['linkedin'] );
 
 	$socials['pinterest'] = [
@@ -45,7 +45,7 @@ add_filter( 'innocode-block-social-share-socials', function ( array $socials ) :
 ````
 
 ````
-add_filter( 'innocode-block-social-share-pinterest-url', function ( string $url, int $post_id ) : string {
+add_filter( 'wpd-block-social-share-pinterest-url', function ( string $url, int $post_id ) : string {
 	return add_query_arg( [
 		'url'  	      => get_the_permalink( $post_id ),
 		'description' => get_the_title( $post_id ),

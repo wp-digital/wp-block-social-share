@@ -1,22 +1,22 @@
 {
 	"apiVersion": 2,
-	"name": "innocode/block-social-share",
-    "version": "2.3.0",
-    "title": "Social Share",
+	"name": "wpd/block-social-share",
+	"version": "2.4.0",
+	"title": "Social Share",
 	"category": "design",
 	"description": "Links to share current post to most used social such as Facebook, Twitter, Email, LinkedIn.",
 	"supports": {
 		"html": false
 	},
-	"textdomain": "innocode-blocks",
-    "attributes": {
-	  "hasLabel": {
-		"type": "boolean",
-		"default": true
-	  },
-	  "label": {
-		"type": "string"
-	  }
+	"textdomain": "wpd-blocks",
+	"attributes": {
+		"hasLabel": {
+			"type": "boolean",
+			"default": true
+		},
+		"label": {
+			"type": "string"
+		}
 	},
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",

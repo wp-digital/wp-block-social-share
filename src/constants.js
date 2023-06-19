@@ -1,3 +1,3 @@
-export const BLOCK_CLASS_NAME = 'innocode-block-social-share';
+export const BLOCK_CLASS_NAME = 'wpd-block-social-share';
 
-export const SOCIALS = window.innocodeBlockSocialShareSocials;
+export const SOCIALS = window.wpdBlockSocialShareSocials;

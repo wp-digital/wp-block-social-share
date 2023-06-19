@@ -30,13 +30,10 @@ export default function Edit(props) {
 			})}
 		>
 			<InspectorControls>
-				<PanelBody
-					title={__('Settings', 'innocode-blocks')}
-					initialOpen
-				>
+				<PanelBody title={__('Settings', 'wpd-blocks')} initialOpen>
 					<PanelRow>
 						<ToggleControl
-							label={__('Show label', 'innocode-blocks')}
+							label={__('Show label', 'wpd-blocks')}
 							checked={hasLabel}
 							onChange={onHasLabelChange}
 						/>
@@ -47,7 +44,7 @@ export default function Edit(props) {
 				<RichText
 					tagName="div"
 					value={label}
-					placeholder={__('Label', 'innocode-blocks')}
+					placeholder={__('Label', 'wpd-blocks')}
 					onChange={onLabelChange}
 					className={`${BLOCK_CLASS_NAME}__label`}
 				/>
