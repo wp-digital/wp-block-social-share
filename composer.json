@@ -8,5 +8,10 @@
 		"ext-json": "*",
 		"composer/installers": "^1.9"
 	},
-	"description": "Links to share current post to most used social such as Facebook, Twitter, Email, LinkedIn."
+	"description": "Links to share current post to most used social such as Facebook, Twitter, Email, LinkedIn.",
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	}
 }
