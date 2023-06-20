@@ -1,6 +1,6 @@
 {
 	"name": "wp-block-social-share",
-	"version": "2.4.0",
+	"version": "2.5.0",
 	"description": "Links to share current post to most used social such as Facebook, Twitter, Email, LinkedIn.",
 	"author": "SMFB Dinamo",
 	"license": "GPL-2.0-or-later",

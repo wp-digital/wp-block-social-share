@@ -1,6 +1,6 @@
 {
-	"name": "wpd-digital/wp-block-social-share",
-	"version": "2.4.0",
+	"name": "wp-digital/wp-block-social-share",
+	"version": "2.5.0",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0+",
 	"require": {
