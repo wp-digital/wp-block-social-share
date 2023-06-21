@@ -13,14 +13,14 @@ Links to share current post to most used social such as Facebook, Twitter, Email
 - Preferable way is to use [Composer](https://getcomposer.org/):
 
     ````
-    composer require wpd-digital/wp-block-social-share
+    composer require wp-digital/wp-block-social-share
     ````
 
 - Alternate way is to clone this repo to `wp-content/plugins/`:
 
     ````
     cd wp-content/plugins/
-    git clone git@github.com:wpd-digital/wp-block-social-share.git
+    git clone git@github.com:wp-digital/wp-block-social-share.git
     ````
 
 Activate **Social Share Block** with [WP-CLI](https://make.wordpress.org/cli/handbook/)
